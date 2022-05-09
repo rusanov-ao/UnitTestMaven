@@ -30,5 +30,10 @@ public class BankCalculator {
         return result;
     }
 
+    public int divideAndPow(int a, int b) {
+        int result = (a / b) * (a / b);
+        return result;
+    }
+
 
 }

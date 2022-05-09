@@ -80,9 +80,36 @@ public class BankCalculatorTest {
                 Arguments.of(50000, 15, 7500),
                 Arguments.of(285000, 89, 253650),
                 Arguments.of(15000, 23, 3450),
-                Arguments.of(2000, 8, 5)); // специально поставит не верный ответ
+                //Arguments.of(2000, 8, 5), // специально поставил не верный expected
+                Arguments.of(567657634, 35, 198680160));
+    }
 
+    @Test
+    public void testDivideAndPow() {
+        int a = 10;
+        int b = 5;
+        int expected = 4;
+        int result = sut.divideAndPow(a, b);
 
+        Assertions.assertEquals(expected, result);
+    }
+
+    @Test
+    public void testDivideAndPowByZero() {
+        int a = 5;
+        int b = 0;
+
+        var expected = ArithmeticException.class;
+
+        Assertions.assertThrows(expected, () -> sut.divideAndPow(a, b));
+    }
+
+    @Test
+    public void testDivideAndPowByNonZero() {
+        int a = 525;
+        int b = 5;
+
+        Assertions.assertDoesNotThrow(() -> sut.divideAndPow(a, b));
     }
 }
 
